@@ -13,8 +13,13 @@ import org.redisson.config.Config;
 public class LockTest {
 
     public static void main(String[] args) {
-        // 1. Create config object
+        /**
+         * 1. Create config object
+         * 支持java，json，yaml，spring等配置方式
+         */
         Config config = new Config();
+        config.setUseLinuxNativeEpoll(true);
+        config.useClusterServers().addNodeAddress("redis://127.0.0.1:7181");
 
         // 2. Create Redisson instance
         RedissonClient redisson = Redisson.create(config);
