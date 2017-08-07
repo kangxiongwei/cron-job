@@ -3,6 +3,9 @@ package com.kxw.api;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.impl.triggers.CronTriggerImpl;
+
+import java.text.ParseException;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
@@ -13,7 +16,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
  */
 public class QuartzTest {
 
-    public static void main(String[] args) throws SchedulerException {
+    public static void main(String[] args) throws SchedulerException, ParseException {
         SchedulerFactory factory = new StdSchedulerFactory();
         Scheduler scheduler = factory.getScheduler();
         scheduler.start();
@@ -24,7 +27,13 @@ public class QuartzTest {
                 .withSchedule(simpleSchedule().withIntervalInSeconds(5).repeatForever())
                 .build();
 
-        scheduler.scheduleJob(detail, trigger);
+
+        CronTriggerImpl a = new CronTriggerImpl();
+        a.setName("test");
+        a.setCronExpression("*/5 * * * * ?");
+
+
+        scheduler.scheduleJob(detail, a);
 
         scheduler.start();
     }
