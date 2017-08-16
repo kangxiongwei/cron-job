@@ -22,7 +22,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.dianping.cat</groupId>
+            <artifactId>cat-client</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

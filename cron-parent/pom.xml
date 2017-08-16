@@ -17,10 +17,13 @@
         <module>../cron-common</module>
         <module>../cron-quartz</module>
         <module>../cron-redis</module>
+        <module>../cron-elasticjob</module>
+        <module>../cron-web</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.3.3.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
@@ -52,12 +55,98 @@
                 <version>2.2.1</version>
             </dependency>
 
+            <!--ElasticJob-->
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>2.1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-console</artifactId>
+                <version>2.1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>2.1.5</version>
+            </dependency>
+
             <!--RedLock分布式锁-->
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>3.5.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.dianping.cat</groupId>
+                <artifactId>cat-client</artifactId>
+                <version>1.5.8</version>
+            </dependency>
+
+            <!--Spring的包-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -77,5 +166,15 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>dianping-releases</id>
+            <url>http://mvn.dianpingoa.com/dianping-releases</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+        </repository>
+    </repositories>
 
 </project>
